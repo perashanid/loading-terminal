@@ -1,0 +1,1 @@
+export { defaultCodeSnippets, getRandomCodeSnippet } from './codeSnippets';

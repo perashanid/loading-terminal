@@ -1,0 +1,267 @@
+/* Interactive Loading Screen Styles */
+/* Import this file in your project to use the loading screen */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Cyberpunk Color Palette */
+:root {
+  --color-cyber-blue: #00d4ff;
+  --color-cyber-purple: #ff6b9d;
+  --color-cyber-green: #64ffda;
+  --color-cyber-yellow: #ffd93d;
+  --color-cyber-pink: #ff0080;
+  --color-cyber-orange: #ff6600;
+  --color-neon-blue: #0099ff;
+  --color-neon-purple: #9933ff;
+  --color-neon-green: #00ff88;
+  --color-electric-blue: #0066ff;
+  --color-holographic: #cc00ff;
+  
+  /* Dark Theme Base Colors */
+  --color-dark-bg: #0a0a0f;
+  --color-dark-secondary: #1a1a2e;
+  --color-dark-tertiary: #16213e;
+  --color-dark-surface: #0f1419;
+  --color-dark-elevated: #1e2328;
+  --color-dark-border: #2a2d3a;
+  --color-dark-muted: #6c7293;
+  
+  /* Glassmorphism Colors */
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-shadow: rgba(0, 0, 0, 0.3);
+  --color-glass-highlight: rgba(255, 255, 255, 0.2);
+  --color-glass-cyber: rgba(0, 212, 255, 0.1);
+  --color-glass-neon: rgba(255, 107, 157, 0.08);
+  
+  /* Gradient Definitions */
+  --gradient-cyber: linear-gradient(135deg, #00d4ff 0%, #ff6b9d 50%, #64ffda 100%);
+  --gradient-neon: linear-gradient(45deg, #0099ff 0%, #9933ff 50%, #00ff88 100%);
+  --gradient-holographic: linear-gradient(90deg, #ff0080 0%, #0066ff 25%, #00ff88 50%, #ff6600 75%, #9933ff 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  --gradient-dark: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+  
+  /* Typography */
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --font-family-display: 'JetBrains Mono', system-ui, sans-serif;
+  
+  /* Shadows */
+  --shadow-glow-sm: 0 0 10px rgba(0, 212, 255, 0.3);
+  --shadow-glow-md: 0 0 20px rgba(0, 212, 255, 0.4);
+  --shadow-glow-lg: 0 0 30px rgba(0, 212, 255, 0.5);
+  --shadow-neon-sm: 0 0 10px rgba(255, 107, 157, 0.3);
+  --shadow-neon-md: 0 0 20px rgba(255, 107, 157, 0.4);
+  --shadow-neon-lg: 0 0 30px rgba(255, 107, 157, 0.5);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Cyberpunk Animations */
+@keyframes glow {
+  0% { 
+    box-shadow: 
+      0 0 5px var(--color-cyber-blue), 
+      0 0 10px var(--color-cyber-blue), 
+      0 0 15px var(--color-cyber-blue);
+  }
+  100% { 
+    box-shadow: 
+      0 0 10px var(--color-cyber-blue), 
+      0 0 20px var(--color-cyber-blue), 
+      0 0 30px var(--color-cyber-blue),
+      0 0 40px var(--color-cyber-blue);
+  }
+}
+
+@keyframes holographic {
+  0% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  25% { 
+    background-position: 100% 50%;
+    filter: hue-rotate(90deg) saturate(1.2);
+  }
+  50% { 
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg) saturate(1.4);
+  }
+  75% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(270deg) saturate(1.2);
+  }
+  100% { 
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg) saturate(1);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor;
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 
+      0 0 2px currentColor,
+      0 0 5px currentColor,
+      0 0 8px currentColor,
+      0 0 12px currentColor,
+      0 0 20px currentColor;
+    opacity: 0.8;
+  }
+}
+
+@keyframes glass-shimmer {
+  0% {
+    background-position: -200% 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 200% 0;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 5px rgba(0, 212, 255, 0.5),
+      inset 0 0 5px rgba(0, 212, 255, 0.2);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 
+      0 0 20px rgba(0, 212, 255, 0.8), 
+      0 0 30px rgba(0, 212, 255, 0.4),
+      inset 0 0 10px rgba(0, 212, 255, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+/* Glassmorphism & Neon Effects */
+.glass-effect {
+  backdrop-filter: blur(12px) saturate(180%);
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-glass);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: glass-shimmer 8s ease-in-out infinite;
+}
+
+.glass-cyber {
+  backdrop-filter: blur(8px) saturate(200%);
+  background: var(--color-glass-cyber);
+  border: 1px solid var(--color-cyber-blue);
+  box-shadow: 
+    var(--shadow-glow-sm),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.neon-glow {
+  position: relative;
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor;
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-dark-bg), var(--color-dark-bg)) padding-box,
+              var(--gradient-cyber) border-box;
+  box-shadow: 
+    0 0 10px rgba(0, 212, 255, 0.3),
+    inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+.holographic {
+  background: var(--gradient-holographic);
+  background-size: 400% 400%;
+  animation: holographic 4s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar Styling */
+.scroll-smooth::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-smooth::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(100, 255, 218, 0.4), rgba(0, 212, 255, 0.4));
+  border-radius: 4px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  transition: all 0.3s ease;
+}
+
+.scroll-smooth::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(100, 255, 218, 0.6), rgba(0, 212, 255, 0.6));
+  box-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+}
+
+/* Enhanced smooth scrolling */
+.scroll-smooth {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 255, 218, 0.4) rgba(0, 0, 0, 0.2);
+  scroll-behavior: smooth;
+  /* Enable hardware acceleration for smoother scrolling */
+  transform: translateZ(0);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Utility Classes */
+.shadow-glow-sm { box-shadow: var(--shadow-glow-sm); }
+.shadow-glow-md { box-shadow: var(--shadow-glow-md); }
+.shadow-glow-lg { box-shadow: var(--shadow-glow-lg); }
+.shadow-neon-sm { box-shadow: var(--shadow-neon-sm); }
+.shadow-neon-md { box-shadow: var(--shadow-neon-md); }
+.shadow-neon-lg { box-shadow: var(--shadow-neon-lg); }
+
+.animate-holographic { animation: holographic 4s linear infinite; }
+.animate-neon-pulse { animation: neon-pulse 3s ease-in-out infinite; }
+.animate-glass-shimmer { animation: glass-shimmer 8s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: auto !important;
+  }
+}
