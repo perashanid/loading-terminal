@@ -8,8 +8,7 @@ import ProgressBar from './ProgressBar';
 const LoadingScreen: React.FC<LoadingScreenProps> = ({
   onComplete,
   duration = 5000,
-  codeSnippets = defaultCodeSnippets,
-  brandText = "Loading..."
+  codeSnippets = defaultCodeSnippets
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);

@@ -46,7 +46,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   useEffect(() => {
     if (scrollContainerRef.current && codeRef.current && progress > 0) {
       const container = scrollContainerRef.current;
-      const codeElement = codeRef.current;
       
       // Calculate the approximate position of the cursor
       const lines = displayedCode.split('\n');
